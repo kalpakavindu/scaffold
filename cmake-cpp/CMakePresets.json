@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe"
+      }
+    },
+    {
+      "name": "x64-win-debug",
+      "displayName": "x64 Windows Debug",
+      "inherits": "windows-base",
+      "toolset": {
+        "value": "host=x64",
+        "strategy": "external"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "x64-win-release",
+      "displayName": "x64 Windows Release",
+      "inherits": "x64-win-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "x86-win-debug",
+      "displayName": "x86 Windows Debug",
+      "inherits": "windows-base",
+      "toolset": {
+        "value": "v143,host=x86",
+        "strategy": "external"
+      },
+      "architecture": {
+        "value": "x86",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "x86-win-release",
+      "displayName": "x86 Windows Release",
+      "inherits": "x86-win-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "msys2-base",
+      "hidden": true,
+      "generator": "MinGW Makefiles",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}"
+    },
+    {
+      "name": "x64-msys2-debug",
+      "displayName": "x64 MSYS2 Debug",
+      "inherits": "msys2-base",
+      "environment": {
+        "PATH": "C:/msys64/mingw64/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/mingw32-make.exe",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "x64-msys2-release",
+      "displayName": "x64 MSYS2 Release",
+      "inherits": "x64-msys2-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "x86-msys2-debug",
+      "displayName": "x86 MSYS2 Debug",
+      "inherits": "msys2-base",
+      "environment": {
+        "PATH": "C:/msys64/mingw32/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "C:/msys64/mingw32/bin/i686-w64-mingw32-gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw32/bin/i686-w64-mingw32-g++.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw32/bin/mingw32-make.exe",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "x86-msys2-release",
+      "displayName": "x86 MSYS2 Release",
+      "inherits": "x86-msys2-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ]
+}
