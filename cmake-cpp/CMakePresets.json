@@ -61,16 +61,16 @@
       }
     },
     {
-      "name": "msys2-base",
+      "name": "mingw-base",
       "hidden": true,
       "generator": "MinGW Makefiles",
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "installDir": "${sourceDir}/out/install/${presetName}"
     },
     {
-      "name": "x64-msys2-debug",
-      "displayName": "x64 MSYS2 Debug",
-      "inherits": "msys2-base",
+      "name": "x64-mingw-debug",
+      "displayName": "x64 MinGW Debug",
+      "inherits": "mingw-base",
       "environment": {
         "PATH": "C:/msys64/mingw64/bin;$penv{PATH}"
       },
@@ -82,17 +82,17 @@
       }
     },
     {
-      "name": "x64-msys2-release",
-      "displayName": "x64 MSYS2 Release",
-      "inherits": "x64-msys2-debug",
+      "name": "x64-mingw-release",
+      "displayName": "x64 MinGW Release",
+      "inherits": "x64-mingw-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
-      "name": "x86-msys2-debug",
-      "displayName": "x86 MSYS2 Debug",
-      "inherits": "msys2-base",
+      "name": "x86-mingw-debug",
+      "displayName": "x86 MinGW Debug",
+      "inherits": "mingw-base",
       "environment": {
         "PATH": "C:/msys64/mingw32/bin;$penv{PATH}"
       },
@@ -104,9 +104,9 @@
       }
     },
     {
-      "name": "x86-msys2-release",
-      "displayName": "x86 MSYS2 Release",
-      "inherits": "x86-msys2-debug",
+      "name": "x86-mingw-release",
+      "displayName": "x86 MinGW Release",
+      "inherits": "x86-mingw-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
