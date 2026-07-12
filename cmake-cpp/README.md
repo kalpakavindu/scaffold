@@ -29,8 +29,10 @@ The presets are configured using the MSYS2 installation path as `C:\\msys64`. If
 <br>
 You must install these packages in MinGW environments to get the required compilers, debuggers and build tools.
 
-- `mingw-w64-i686-toolchain`
-- `mingw-w64-i686-toolchain`
+- `mingw-w64-i686-toolchain` - For 32-bit architecture.
+- `mingw-w64-x86_64-toolchain` - For 64-bit architecture.
+
+  > Press `Enter` when prompted to install all tools.
 
 ## CMake Configuration Presets
 
