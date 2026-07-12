@@ -1,5 +1,5 @@
 set(SOURCE_FILES
-  main.cpp
+  main.cpp main.hpp
   # Specify the source files here...
 )
 
@@ -10,9 +10,13 @@ target_include_directories(${SRC_TARGET_NAME} PRIVATE
   # Other include directories can be added here...
 )
 
-target_link_libraries(${SRC_TARGET_NAME} PRIVATE
-  # Other libraries can be added here...
-)
+# Add library dependencies (if any)
+# target_link_libraries(${SRC_TARGET_NAME} PRIVATE
+#   # library names here...
+# )
+
+# Copy resource files to the build directory (if any)
+# file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/res DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # -------- INSTALLATION --------
 

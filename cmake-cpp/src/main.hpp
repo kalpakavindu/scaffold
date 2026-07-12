@@ -1,6 +1,6 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
-int main(int argc, char* argv[]);
+int main(void);
 
 #endif

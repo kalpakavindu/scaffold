@@ -2,7 +2,37 @@
 
 CMake based project template for C or C++ projects.
 
-## CMake Presets
+## Prerequisites
+
+### VS Code
+
+This template is made to be used in [VSCode](https://code.visualstudio.com/Download) so you should use these extensions to get the best out of this template.
+
+- **C/C++ Extension** - [`ms-vscode.cpptools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- **C/C++ DevTools** - [`ms-vscode.cpp-devtools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpp-devtools)
+- **CMake Tools** - [`ms-vscode.cmake-tools`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+
+> Sadly these wont be available in VS Codium 🥲
+
+### Visual Studio 2022/2026
+
+Visual Studio Build Tools are needed to get the `MSVC` compiler and other required tools. Install these workloads using [Visual Studio Installer](https://visualstudio.microsoft.com/downloads/).
+
+- Desktop development with C++
+- Game development with C++ (Optional)
+
+### MSYS2 environments
+
+You must need [MSYS2](https://www.msys2.org/) installed in your system to use MinGW presets.
+<br>
+The presets are configured using the MSYS2 installation path as `C:\\msys64`. If your installation is in somewhere else, please update paths in `CMakePresets.json`.
+<br>
+You must install these packages in MinGW environments to get the required compilers, debuggers and build tools.
+
+- `mingw-w64-i686-toolchain`
+- `mingw-w64-i686-toolchain`
+
+## CMake Configuration Presets
 
 ### Debug Presets
 
@@ -18,14 +48,24 @@ CMake based project template for C or C++ projects.
 - **MinGW x64 Release (GCC):** `x64-mingw-release`
 - **MinGW x86 Release (GCC):** `x86-mingw-release`
 
-# Prerequisites
+## Debugger Configurations
 
-- **Ninja**: The generator used by Windows presets.
-  > Install Visual Studio 2022/2026 Build Tools.
-- **MSYS2 environments**
-  > CMakePresets configured for the installation path `C:\\mingw64\`. If your installation path is not the same, Please update MinGW presets in the `CMakePresets.txt` file accordingly.
-- **Make**: The generator used by MinGW presets.
-  > Install the following for MinGW environments using the MinGW terminal
-  >
-  > - `mingw-w64-i686-toolchain`
-  > - `mingw-w64-i686-toolchain`
+> Please select the configuration preset before starting the debugger. These configurations include cmake commands to automatically select the environment and debuggers for corresponding architectures from the configuration presets.
+
+### Windows Launch
+
+Launch the target in `cppvsdbg` type debugger. Works with,
+
+- Windows x64 Debug (MSVC)
+- Windows x64 Release (MSVC)
+- Windows x86 Debug (MSVC)
+- Windows x86 Release (MSVC)
+
+### MinGW Launch
+
+Launch the target in `cppdbg` type debugger with `gdb`. Works with,
+
+- MinGW x64 Debug (GCC)
+- MinGW x86 Debug (GCC)
+- MinGW x64 Release (GCC)
+- MinGW x86 Release (GCC)
