@@ -1,0 +1,117 @@
+// Color properties
+@property --color-background {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 255, 255, 255;
+}
+@property --color-on-background {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-primary {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-on-primary {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 255, 255, 255;
+}
+@property --color-secondary {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 211, 211, 211;
+}
+@property --color-on-secondary {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-accent {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 66, 66, 66;
+}
+@property --color-on-accent {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 255, 255, 255;
+}
+@property --color-danger {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 251, 44, 54;
+}
+@property --color-on-danger {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-success {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 201, 80;
+}
+@property --color-on-success {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-warning {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 254, 154, 0;
+}
+@property --color-on-warning {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+@property --color-info {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 43, 127, 255;
+}
+@property --color-on-info {
+  syntax: '<number>#';
+  inherits: true;
+  initial-value: 0, 0, 0;
+}
+
+// Colors RGB
+$color-background-rgb: var(--color-background);
+$color-on-background-rgb: var(--color-on-background);
+$color-primary-rgb: var(--color-primary);
+$color-on-primary-rgb: var(--color-on-primary);
+$color-secondary-rgb: var(--color-secondary);
+$color-on-secondary-rgb: var(--color-on-secondary);
+$color-accent-rgb: var(--color-accent);
+$color-on-accent-rgb: var(--color-on-accent);
+$color-danger-rgb: var(--color-danger);
+$color-on-danger-rgb: var(--color-on-danger);
+$color-success-rgb: var(--color-success);
+$color-on-success-rgb: var(--color-on-success);
+$color-warning-rgb: var(--color-warning);
+$color-on-warning-rgb: var(--color-on-warning);
+$color-info-rgb: var(--color-info);
+$color-on-info-rgb: var(--color-on-info);
+
+// Colors
+$color-background: rgb(var(--color-background));
+$color-on-background: rgb(var(--color-on-background));
+$color-primary: rgb(var(--color-primary));
+$color-on-primary: rgb(var(--color-on-primary));
+$color-secondary: rgb(var(--color-secondary));
+$color-on-secondary: rgb(var(--color-on-secondary));
+$color-accent: rgb(var(--color-accent));
+$color-on-accent: rgb(var(--color-on-accent));
+$color-danger: rgb(var(--color-danger));
+$color-on-danger: rgb(var(--color-on-danger));
+$color-success: rgb(var(--color-success));
+$color-on-success: rgb(var(--color-on-success));
+$color-warning: rgb(var(--color-warning));
+$color-on-warning: rgb(var(--color-on-warning));
+$color-info: rgb(var(--color-info));
+$color-on-info: rgb(var(--color-on-info));

@@ -1,12 +1,72 @@
-* {
+@use './variables.scss' as *;
+
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-optical-sizing: auto;
+  border: 0 solid;
+}
+
+svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+label,
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Set `display: none` to all elements with `hidden` attribute by default
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none !important;
 }
 
 html,
 body {
   scroll-behavior: smooth;
+  background-color: $color-background;
+  color: $color-on-background;
+}
+
+a {
+  color: $color-primary;
+  cursor: pointer;
+  text-decoration: underline;
 }
