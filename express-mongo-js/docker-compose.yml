@@ -1,0 +1,57 @@
+services:
+  server:
+    build:
+      context: .
+      args:
+        - NODE_ENV=${NODE_ENV}
+        - PORT=${SERVER_PORT}
+      dockerfile: DockerFile
+    image: express-mongo-js:V1
+    container_name: express-mongo-js
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - app_network
+
+  database:
+    image: mongo:latest
+    container_name: express-mongo-js-db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_ROOT}
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+      - db_data:/data/db
+    healthcheck:
+      test:
+        ["CMD", "mongosh", "--eval", "db.adminCommand('ping').ok", "--quiet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json.old
+
+# Environment Variables
+.env
+.env.local
+.env.template
+.env.development
+.env.production
+
+# Build and Temp files
+dist/
+build/
+coverage/
+tmp/
+*.log
+
+# Version Control
+.git
+.gitignore
+
+# IDE and Editor settings
+.vscode/
+.idea/
+.DS_Store
+
+# Docker specific
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Misc
+*.md
+LICENSE

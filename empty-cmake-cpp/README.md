@@ -1,4 +1,4 @@
-# CMake + C++ / C Template
+# Empty CMake + C++ Template
 
 CMake based project template for C or C++ projects.
 

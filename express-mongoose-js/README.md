@@ -1,1 +1,0 @@
-# Express + Mongoose + JavaScript Template
