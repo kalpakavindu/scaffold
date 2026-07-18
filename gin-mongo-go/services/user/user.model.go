@@ -1,0 +1,36 @@
+package user
+
+var users = []User{
+	{
+		ID:                 1,
+		FirstName:          "John",
+		LastName:           "Doe",
+		Username:           "johndoe",
+		Email:              "2s2lS@example.com",
+		Role:               "system",
+		PhoneNumber:        "1234567890",
+		PasswordHash:       "hashed_password",
+		PasswordResetToken: "reset_token",
+		VerificationToken:  "verification_token",
+		RefreshTokenHash:   "refresh_token_hash",
+		LastLogin:          1234567890,
+		CreatedAt:          1234567890,
+		UpdatedAt:          1234567890,
+	},
+	{
+		ID:                 2,
+		FirstName:          "Kalpa",
+		LastName:           "Kavindu",
+		Username:           "kalpakavindu",
+		Email:              "kalpadevonline@gmail.com",
+		Role:               "admin",
+		PhoneNumber:        "1234567890",
+		PasswordHash:       "hashed_password",
+		PasswordResetToken: "reset_token",
+		VerificationToken:  "verification_token",
+		RefreshTokenHash:   "refresh_token_hash",
+		LastLogin:          1234567890,
+		CreatedAt:          1234567890,
+		UpdatedAt:          1234567890,
+	},
+}
