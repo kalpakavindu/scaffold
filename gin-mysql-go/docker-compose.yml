@@ -1,0 +1,64 @@
+services:
+  server:
+    build:
+      context: .
+      args:
+        - APP_ENV=${APP_ENV}
+        - PORT=${SERVER_PORT}
+      dockerfile: DockerFile
+    image: password-manager-api:V1
+    container_name: password-manager-api
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - app_network
+
+  database:
+    image: mysql:8.4
+    restart: always
+    container_name: password-manager-db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test:
+        ["CMD", "mysql", "-u", "root", "-p${DB_ROOT}", "-e", "SHOW DATABASES;"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - app_network
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge
