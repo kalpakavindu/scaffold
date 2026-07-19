@@ -1,4 +1,4 @@
-module gin-mysql-go
+module example.com/m
 
 go 1.26.3
 

@@ -10,15 +10,15 @@ COPY . .
 
 ARG PORT=4000
 
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /GinMySQLGoSrv main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /ApplicationSrv main.go
 
 
 FROM alpine:latest AS runtime
 RUN apk --no-cache add ca-certificates tzdata
 WORKDIR /root/
 
-COPY --from=builder /GinMySQLGoSrv .
+COPY --from=builder /ApplicationSrv .
 
 EXPOSE $PORT
 
-CMD ["./GinMySQLGoSrv"]
+CMD ["./ApplicationSrv"]

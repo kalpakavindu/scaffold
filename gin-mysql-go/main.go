@@ -6,16 +6,18 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gin-mysql-go/config"
-	"gin-mysql-go/middlewares"
-	"gin-mysql-go/services"
+	"example.com/m/config"
+	"example.com/m/controllers"
+	"example.com/m/middlewares"
+	"example.com/m/models"
 )
 
 func main() {
 	config.LoadEnv()
 	config.ConnectDatabase()
 
-	srv := services.NewRegistry()
+	models.MigrateDatabase()
+	srv := controllers.NewRegistry()
 
 	router := gin.Default()
 	router.Use(gin.Logger())
@@ -29,9 +31,9 @@ func main() {
 		c.JSON(http.StatusNotFound, response)
 	})
 
-	router.GET("/users/:id", srv.UserService.GetUserById)
-	router.GET("/users", srv.UserService.GetUsers)
-	router.POST("/users", srv.UserService.CreateUser)
+	router.GET("/users/:id", srv.UserController.GetUser)
+	router.GET("/users", srv.UserController.GetUsers)
+	router.POST("/users", srv.UserController.CreateUser)
 
 	var HOST string = config.GetEnv("SERVER_HOST")
 	var PORT string = config.GetEnv("SERVER_PORT")

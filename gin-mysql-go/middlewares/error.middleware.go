@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"gin-mysql-go/utils"
+	"example.com/m/utils"
 )
 
 func ErrorMiddleware() gin.HandlerFunc {

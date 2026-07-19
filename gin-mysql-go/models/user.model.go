@@ -1,11 +1,9 @@
-package user
+package models
 
 import (
 	"time"
 
-	"gin-mysql-go/enums"
-
-	"gin-mysql-go/config"
+	"example.com/m/enums"
 )
 
 type User struct {
@@ -25,8 +23,4 @@ type User struct {
 	VerificationTokenHash  string         `json:"-" gorm:"type:varchar(64)"`
 	CreatedAt              time.Time      `json:"-" gorm:"type:timestamp;default:CURRENT_TIMESTAMP;autoCreateTime"`
 	UpdatedAt              time.Time      `json:"-" gorm:"type:timestamp;default:CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;autoUpdateTime"`
-}
-
-func (e *Extension) Migrate() {
-	config.Database.AutoMigrate(&User{})
 }
