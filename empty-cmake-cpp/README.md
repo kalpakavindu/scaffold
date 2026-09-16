@@ -24,9 +24,11 @@ Visual Studio Build Tools are needed to get the `MSVC` compiler and other requir
 ### MSYS2 environments
 
 You must need [MSYS2](https://www.msys2.org/) installed in your system to use MinGW presets.
+
 <br>
-The presets are configured using the MSYS2 installation path as `C:\\msys64`. If your installation is in somewhere else, please update paths in `CMakePresets.json`.
+After installation, set the installation path of the msys2 in a new user environment variable called `MSYS2_HOME` in your system. eg: For example installation path `C:/msys2` you should create a new environment variable called `MSYS2_HOME` with the value `C:/msys2` in your system environment.
 <br>
+
 You must install these packages in MinGW environments to get the required compilers, debuggers and build tools.
 
 - `mingw-w64-i686-toolchain` - For 32-bit architecture.

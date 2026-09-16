@@ -7,12 +7,9 @@
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "installDir": "${sourceDir}/out/install/${presetName}",
-      "environment": {
-        "PATH": "$penv{PATH}"
-      },
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "cl.exe",
-        "CMAKE_CXX_COMPILER": "cl.exe"
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
       }
     },
     {
@@ -68,20 +65,21 @@
       "hidden": true,
       "generator": "MinGW Makefiles",
       "binaryDir": "${sourceDir}/out/build/${presetName}",
-      "installDir": "${sourceDir}/out/install/${presetName}"
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_MAKE_PROGRAM": "mingw32-make"
+      }
     },
     {
       "name": "x64-mingw-debug",
       "displayName": "x64 MinGW Debug",
       "inherits": "mingw-base",
       "environment": {
-        "PATH": "C:/msys64/mingw64/bin;$penv{PATH}"
+        "PATH": "$penv{MSYS2_HOME}/mingw64/bin;$penv{PATH}"
       },
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
-        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw64/bin/mingw32-make.exe",
-        "CMAKE_DEBUGGER": "C:/msys64/mingw64/bin/gdb.exe",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
@@ -98,13 +96,11 @@
       "displayName": "x86 MinGW Debug",
       "inherits": "mingw-base",
       "environment": {
-        "PATH": "C:/msys64/mingw32/bin;$penv{PATH}"
+        "PATH": "$penv{MSYS2_HOME}/mingw32/bin;$penv{PATH}"
       },
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "C:/msys64/mingw32/bin/i686-w64-mingw32-gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:/msys64/mingw32/bin/i686-w64-mingw32-g++.exe",
-        "CMAKE_MAKE_PROGRAM": "C:/msys64/mingw32/bin/mingw32-make.exe",
-        "CMAKE_DEBUGGER": "C:/msys64/mingw32/bin/gdb.exe",
+        "CMAKE_C_COMPILER": "i686-w64-mingw32-gcc",
+        "CMAKE_CXX_COMPILER": "i686-w64-mingw32-g++",
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
